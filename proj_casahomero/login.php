@@ -25,6 +25,11 @@ if ($row['@valor_existe']==0)
 }
 else 
 {
+	//todas las pags deben comenzar con session_start para que puedan compartir la info sig:
+	session_start(); // cree una sesion, se manejan como arreglos
+	$_SESSION ['time']=date('H:i:s'); //  guardo hs  min ss.
+	$_SESSION ['username']=$usuario; 
+	$_SESSION ['logueado']=true;      // para saber si se logueo
 // aca va el servicio que vamos a ofrecer si el ingreso fue correcto
     header('location:welcome.php'); // con header redirecciono
 }
